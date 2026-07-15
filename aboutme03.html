@@ -1,0 +1,2461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="예술·콘텐츠 기획 경험과 산업공학·데이터 역량을 연결한 취업용 포트폴리오"
+  />
+
+  <title>AI·데이터 기반 서비스 기획 포트폴리오</title>
+
+  <style>
+    /* =========================================================
+       0. 디자인 토큰
+       - 미술의 따뜻한 색감 + 공학의 정돈된 그리드를 결합했습니다.
+    ========================================================== */
+    :root {
+      --ink: #262522;
+      --muted: #706c65;
+      --paper: #fbf8f1;
+      --white: #ffffff;
+      --line: #ded8cc;
+
+      --coral: #e97858;
+      --coral-soft: #f7dfd6;
+      --mint: #91c9ae;
+      --mint-soft: #e1f2e9;
+      --yellow: #f1d36c;
+      --yellow-soft: #f7edbd;
+      --blue: #6578c9;
+      --blue-soft: #e4e8f7;
+
+      --shadow-sm: 0 12px 30px rgba(44, 39, 31, 0.08);
+      --shadow-lg: 0 28px 70px rgba(44, 39, 31, 0.13);
+
+      --radius-sm: 16px;
+      --radius-md: 24px;
+      --radius-lg: 36px;
+
+      --max-width: 1180px;
+    }
+
+    /* =========================================================
+       1. 기본 설정
+    ========================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 86px;
+    }
+
+    body {
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      font-family:
+        Pretendard,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Apple SD Gothic Neo",
+        "Noto Sans KR",
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.68;
+      word-break: keep-all;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      opacity: 0.2;
+      background-image:
+        linear-gradient(rgba(32, 32, 30, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(32, 32, 30, 0.035) 1px, transparent 1px);
+      background-size: 38px 38px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ::selection {
+      background: var(--yellow);
+      color: var(--ink);
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 118px 0;
+    }
+
+    .section-white {
+      background: rgba(255, 255, 255, 0.78);
+      border-block: 1px solid rgba(222, 216, 204, 0.72);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 15px;
+      color: var(--coral);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 0 5px rgba(255, 112, 72, 0.13);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: end;
+      gap: 0;
+      margin-bottom: 42px;
+    }
+
+    .section-title {
+      max-width: 780px;
+      font-size: clamp(36px, 4.5vw, 58px);
+      line-height: 1.13;
+      letter-spacing: -0.055em;
+    }
+
+    .section-desc {
+      display: none;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: #54514c;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       2. 상단 내비게이션
+    ========================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(222, 216, 204, 0.8);
+      background: rgba(255, 250, 242, 0.86);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-wrap {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 17px;
+      font-weight: 950;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 13px 13px 13px 4px;
+      background: var(--yellow);
+      font-size: 14px;
+      transform: rotate(-3deg);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      color: #57534e;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 7px 0;
+    }
+
+    .nav-links a:not(.nav-contact)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--coral);
+      transition: width 0.22s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-contact {
+      padding: 10px 15px !important;
+      border: 2px solid var(--ink);
+      border-radius: 12px;
+      background: var(--ink);
+      color: white;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-contact:hover {
+      transform: translateY(-2px);
+    }
+
+    .menu-button {
+      display: none;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+    }
+
+    .menu-button span,
+    .menu-button::before,
+    .menu-button::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 4px auto;
+      border-radius: 99px;
+      background: var(--ink);
+      transition: 0.2s ease;
+    }
+
+    /* =========================================================
+       3. 첫 화면
+    ========================================================== */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+      padding: 86px 0 100px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 40px;
+      right: -150px;
+      z-index: -2;
+      width: 470px;
+      height: 470px;
+      border-radius: 48% 52% 62% 38% / 42% 34% 66% 58%;
+      background: var(--yellow-soft);
+      transform: rotate(18deg);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -180px;
+      left: -190px;
+      z-index: -2;
+      width: 430px;
+      height: 430px;
+      border-radius: 50%;
+      background: var(--mint-soft);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.72fr);
+      align-items: center;
+      gap: 78px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 23px;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: #5c5853;
+      font-size: 13px;
+      font-weight: 850;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-kicker .live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #2cb779;
+      box-shadow: 0 0 0 5px rgba(44, 183, 121, 0.15);
+    }
+
+    .hero h1 {
+      max-width: 750px;
+      margin-bottom: 24px;
+      font-size: clamp(50px, 7.1vw, 88px);
+      line-height: 1.04;
+      letter-spacing: -0.073em;
+    }
+
+    .hero h1 .line-art {
+      position: relative;
+      display: inline-block;
+      color: var(--coral);
+    }
+
+    .hero h1 .line-art::after {
+      content: "";
+      position: absolute;
+      left: -2%;
+      bottom: 5px;
+      z-index: -1;
+      width: 104%;
+      height: 23px;
+      border-radius: 999px 25px 999px 20px;
+      background: var(--yellow);
+      opacity: 0.78;
+      transform: rotate(-1deg);
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .role-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 31px;
+    }
+
+    .role-chip {
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+      font-size: 13px;
+      font-weight: 850;
+      box-shadow: 0 8px 20px rgba(44, 39, 31, 0.05);
+    }
+
+    .role-chip.primary {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: white;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+    }
+
+    .button {
+      min-height: 51px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 20px;
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 900;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 13px 25px rgba(44, 39, 31, 0.14);
+    }
+
+    .button-dark {
+      background: var(--ink);
+      color: white;
+    }
+
+    .button-light {
+      background: white;
+    }
+
+    .profile-zone {
+      position: relative;
+      width: min(100%, 455px);
+      margin-inline: auto;
+    }
+
+    .profile-frame {
+      position: relative;
+      z-index: 2;
+      padding: 16px;
+      border: 2px solid var(--ink);
+      border-radius: 38px 38px 38px 10px;
+      background: white;
+      box-shadow: var(--shadow-lg);
+      transform: rotate(1.6deg);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-frame:hover {
+      transform: rotate(0deg) translateY(-7px);
+    }
+
+    .photo-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      border-radius: 27px 27px 27px 7px;
+      background: #111;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-caption {
+      position: relative;
+      z-index: 5;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 14px;
+      padding: 27px 16px 17px;
+    }
+
+    .profile-caption strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+    }
+
+    .profile-caption span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .caption-code {
+      align-self: end;
+      color: var(--coral) !important;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: nowrap;
+      font-size: 11px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .profile-caption > div {
+      min-width: 0;
+    }
+
+    .floating-note {
+      position: absolute;
+      z-index: 3;
+      padding: 12px 15px;
+      border: 2px solid var(--ink);
+      border-radius: 14px 14px 14px 4px;
+      font-size: 13px;
+      font-weight: 950;
+      box-shadow: 8px 8px 0 var(--ink);
+      animation: float 3.4s ease-in-out infinite;
+    }
+
+    .floating-note.note-art {
+      top: -31px;
+      right: -33px;
+      background: var(--coral-soft);
+      transform: rotate(5deg);
+    }
+
+    .floating-note.note-data {
+      bottom: -24px;
+      left: -118px;
+      background: var(--mint-soft);
+      transform: rotate(-4deg);
+      animation-delay: 0.7s;
+    }
+
+    .floating-star {
+      position: absolute;
+      top: 29%;
+      left: -43px;
+      z-index: 1;
+      color: var(--blue);
+      font-size: 62px;
+      line-height: 1;
+      transform: rotate(-15deg);
+    }
+
+    @keyframes float {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -9px; }
+    }
+
+    /* =========================================================
+       4. 포지셔닝
+    ========================================================== */
+    .direction-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 22px;
+    }
+
+    .direction-main {
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      padding: 43px;
+      background: var(--ink);
+      color: white;
+    }
+
+    .direction-main::after {
+      content: "A × E";
+      position: absolute;
+      right: -15px;
+      bottom: -55px;
+      color: rgba(255, 255, 255, 0.06);
+      font-size: 155px;
+      font-weight: 950;
+      letter-spacing: -0.1em;
+    }
+
+    .direction-main .mini-label {
+      color: var(--yellow);
+    }
+
+    .direction-main h3 {
+      position: relative;
+      z-index: 1;
+      max-width: 750px;
+      margin: 15px 0 22px;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.18;
+      letter-spacing: -0.055em;
+    }
+
+    .direction-main p {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      color: #d8d4ce;
+      font-size: 16px;
+    }
+
+    .degree-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .degree-pill {
+      padding: 10px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.23);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.07);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .job-stack {
+      display: grid;
+      gap: 22px;
+    }
+
+    .job-card {
+      min-height: 199px;
+      padding: 30px;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .job-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .job-rank {
+      display: inline-flex;
+      margin-bottom: 15px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.09em;
+    }
+
+    .job-card.primary-job {
+      background: var(--yellow-soft);
+    }
+
+    .job-card.secondary-job {
+      background: var(--blue-soft);
+    }
+
+    .primary-job .job-rank {
+      background: var(--yellow);
+    }
+
+    .secondary-job .job-rank {
+      background: var(--blue);
+      color: white;
+    }
+
+    .job-card h3 {
+      margin-bottom: 9px;
+      font-size: 23px;
+      line-height: 1.27;
+      letter-spacing: -0.04em;
+    }
+
+    .job-card p {
+      color: #5f5b55;
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       5. 핵심 역량
+    ========================================================== */
+    .strength-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .strength-card {
+      position: relative;
+      min-height: 315px;
+      padding: 29px;
+      overflow: hidden;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .strength-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .strength-no {
+      display: inline-grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      margin-bottom: 42px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 950;
+    }
+
+    .strength-card:nth-child(1) .strength-no { background: var(--coral-soft); }
+    .strength-card:nth-child(2) .strength-no { background: var(--yellow-soft); }
+    .strength-card:nth-child(3) .strength-no { background: var(--mint-soft); }
+    .strength-card:nth-child(4) .strength-no { background: var(--blue-soft); }
+
+    .strength-card h3 {
+      margin-bottom: 12px;
+      font-size: 22px;
+      letter-spacing: -0.04em;
+    }
+
+    .strength-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .strength-keyword {
+      position: absolute;
+      right: -7px;
+      bottom: -21px;
+      color: rgba(32, 32, 30, 0.045);
+      font-size: 72px;
+      font-weight: 950;
+      letter-spacing: -0.08em;
+    }
+
+    /* =========================================================
+       6. 프로젝트
+    ========================================================== */
+    .project-list {
+      display: grid;
+      gap: 25px;
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 0.42fr 1fr;
+      overflow: hidden;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-visual {
+      position: relative;
+      min-height: 370px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 31px;
+      border-right: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .project:nth-child(1) .project-visual { background: var(--mint-soft); }
+    .project:nth-child(2) .project-visual { background: var(--blue-soft); }
+    .project:nth-child(3) .project-visual { background: var(--coral-soft); }
+    .project:nth-child(4) .project-visual { background: var(--yellow-soft); }
+
+    .project-index {
+      font-size: 13px;
+      font-weight: 950;
+      letter-spacing: 0.15em;
+    }
+
+    .project-symbol {
+      align-self: center;
+      font-size: 82px;
+      filter: drop-shadow(0 14px 12px rgba(44, 39, 31, 0.13));
+      transition: transform 0.3s ease;
+    }
+
+    .project:hover .project-symbol {
+      transform: scale(1.08) rotate(-4deg);
+    }
+
+    .project-category {
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .project-body {
+      padding: 40px;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-bottom: 13px;
+      color: var(--coral);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .project h3 {
+      margin-bottom: 13px;
+      font-size: clamp(27px, 3vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -0.055em;
+    }
+
+    .project-summary {
+      max-width: 720px;
+      margin-bottom: 25px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+      margin-bottom: 25px;
+    }
+
+    .case-box {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: #fffdf9;
+    }
+
+    .case-box strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    .case-box p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================================================
+       7. 교육 과정
+    ========================================================== */
+    .learning-dashboard {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 22px;
+    }
+
+    .status-card {
+      position: sticky;
+      top: 102px;
+      align-self: start;
+      padding: 32px;
+      background: var(--ink);
+      color: white;
+    }
+
+    .status-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 19px;
+      color: var(--mint);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+    .status-label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 0 5px rgba(139, 214, 176, 0.14);
+    }
+
+    .status-card h3 {
+      margin-bottom: 13px;
+      font-size: 30px;
+      line-height: 1.24;
+      letter-spacing: -0.05em;
+    }
+
+    .status-card > p {
+      color: #d6d1ca;
+      font-size: 14px;
+    }
+
+    .status-progress {
+      overflow: hidden;
+      width: 100%;
+      height: 10px;
+      margin: 27px 0 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.13);
+    }
+
+    .status-progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--mint), var(--yellow));
+      transition: width 1s ease;
+    }
+
+    .status-percent {
+      color: var(--yellow);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .course-info {
+      display: grid;
+      gap: 11px;
+      margin-top: 28px;
+    }
+
+    .course-info div {
+      padding-top: 11px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .course-info dt {
+      margin-bottom: 2px;
+      color: #aaa39b;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+    }
+
+    .course-info dd {
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .roadmap {
+      display: grid;
+      gap: 13px;
+    }
+
+    .roadmap-item {
+      display: grid;
+      grid-template-columns: 110px 1fr auto;
+      align-items: start;
+      gap: 18px;
+      padding: 21px;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .roadmap-item:hover {
+      transform: translateX(5px);
+      border-color: #bcb3a5;
+    }
+
+    .roadmap-date {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .roadmap-item h3 {
+      margin-bottom: 5px;
+      font-size: 17px;
+      letter-spacing: -0.03em;
+    }
+
+    .roadmap-item p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .roadmap-state {
+      min-width: 68px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      text-align: center;
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: 0.05em;
+    }
+
+    .roadmap-item.is-done {
+      opacity: 0.72;
+    }
+
+    .roadmap-item.is-done .roadmap-state {
+      background: #e9e6df;
+      color: #69645d;
+    }
+
+    .roadmap-item.is-now {
+      border: 2px solid var(--ink);
+      box-shadow: 7px 7px 0 var(--yellow);
+    }
+
+    .roadmap-item.is-now .roadmap-state {
+      background: var(--coral);
+      color: white;
+    }
+
+    .roadmap-item.is-next .roadmap-state {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    /* =========================================================
+       8. 경력·활동
+    ========================================================== */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 0.45fr 1fr;
+      gap: 55px;
+    }
+
+    .profile-summary {
+      align-self: start;
+      padding: 31px;
+    }
+
+    .profile-summary h3 {
+      margin-bottom: 20px;
+      font-size: 26px;
+      letter-spacing: -0.05em;
+    }
+
+    .profile-dl {
+      display: grid;
+      gap: 14px;
+    }
+
+    .profile-dl div {
+      padding-bottom: 13px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .profile-dl div:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .profile-dl dt {
+      margin-bottom: 3px;
+      color: var(--coral);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+    }
+
+    .profile-dl dd {
+      color: #4f4b46;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      bottom: 10px;
+      left: 9px;
+      width: 2px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 20px 118px 1fr;
+      gap: 17px;
+      padding: 20px 21px 20px 0;
+    }
+
+    .timeline-dot {
+      z-index: 1;
+      width: 20px;
+      height: 20px;
+      margin-top: 3px;
+      border: 5px solid var(--paper);
+      border-radius: 50%;
+      background: var(--coral);
+      box-shadow: 0 0 0 2px var(--coral);
+    }
+
+    .timeline-date {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .timeline-content {
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline-item:last-child .timeline-content {
+      border-bottom: 0;
+    }
+
+    .timeline-content h3 {
+      margin-bottom: 5px;
+      font-size: 19px;
+      letter-spacing: -0.03em;
+    }
+
+    .timeline-content strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 12px;
+    }
+
+    .timeline-content p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       9. 자격·도구
+    ========================================================== */
+    .credential-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+    }
+
+    .credential-card {
+      padding: 34px;
+    }
+
+    .credential-card h3 {
+      margin-bottom: 24px;
+      font-size: 25px;
+      letter-spacing: -0.04em;
+    }
+
+    .cert-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 11px;
+    }
+
+    .cert {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fffdf9;
+    }
+
+    .cert strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 14px;
+    }
+
+    .cert span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .tool-groups {
+      display: grid;
+      gap: 20px;
+    }
+
+    .tool-group h4 {
+      margin-bottom: 9px;
+      color: var(--coral);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    /* =========================================================
+       10. 연락처
+    ========================================================== */
+    .contact {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-box {
+      position: relative;
+      overflow: hidden;
+      padding: 58px;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius-lg);
+      background: var(--yellow);
+      box-shadow: 12px 12px 0 var(--ink);
+    }
+
+    .contact-box::after {
+      content: "HELLO!";
+      position: absolute;
+      right: -15px;
+      bottom: -50px;
+      color: rgba(32, 32, 30, 0.07);
+      font-size: 145px;
+      font-weight: 950;
+      letter-spacing: -0.09em;
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: end;
+      gap: 24px;
+    }
+
+    .contact-box h2 {
+      max-width: 760px;
+      margin-bottom: 17px;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.12;
+      letter-spacing: -0.06em;
+    }
+
+    .contact-box p {
+      max-width: 760px;
+      color: #514b42;
+    }
+
+    .portfolio-goal {
+      margin-top: 17px;
+      font-weight: 750;
+    }
+
+    .contact-actions {
+      display: grid;
+      gap: 10px;
+      min-width: 225px;
+    }
+
+    .contact-actions .button {
+      width: 100%;
+      background: white;
+    }
+
+    .contact-actions .button:first-child {
+      background: var(--ink);
+      color: white;
+    }
+
+    .privacy-note {
+      display: none;
+    }
+
+    /* =========================================================
+       11. 푸터 / 등장 효과
+    ========================================================== */
+    footer {
+      padding: 38px 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       12. 반응형
+    ========================================================== */
+    @media (max-width: 1020px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 75px;
+      }
+
+      .hero-copy-area {
+        text-align: center;
+      }
+
+      .hero-copy {
+        margin-inline: auto;
+      }
+
+      .role-row,
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .profile-zone {
+        width: min(100%, 500px);
+      }
+
+      .direction-grid,
+      .learning-dashboard,
+      .credential-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .job-stack {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .strength-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .status-card {
+        position: static;
+      }
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .section {
+        padding: 86px 0;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-bottom: 36px;
+      }
+
+      .site-header {
+        background: rgba(255, 250, 242, 0.94);
+      }
+
+      .nav-wrap {
+        min-height: 67px;
+      }
+
+      .menu-button {
+        display: grid;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 67px;
+        right: 14px;
+        left: 14px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 15px;
+        border: 1px solid var(--line);
+        border-radius: 17px;
+        background: white;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 11px 13px;
+        border-radius: 10px;
+      }
+
+      .nav-links a:hover {
+        background: #f5f1e9;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 70px 0 90px;
+      }
+
+      .hero h1 {
+        font-size: clamp(46px, 14vw, 67px);
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .floating-note.note-art {
+        right: -5px;
+      }
+
+      .floating-note.note-data {
+        left: -8px;
+        bottom: -20px;
+      }
+
+      .floating-star {
+        display: none;
+      }
+
+      .direction-main,
+      .credential-card {
+        padding: 28px;
+      }
+
+      .job-stack,
+      .strength-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .strength-card {
+        min-height: 250px;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+      }
+
+      .project-visual {
+        min-height: 230px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .project-body {
+        padding: 27px;
+      }
+
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap-item {
+        grid-template-columns: 1fr auto;
+        gap: 8px 15px;
+      }
+
+      .roadmap-date {
+        grid-column: 1 / -1;
+      }
+
+      .timeline-item {
+        grid-template-columns: 20px 1fr;
+      }
+
+      .timeline-date {
+        grid-column: 2;
+      }
+
+      .timeline-content {
+        grid-column: 2;
+      }
+
+      .cert-list {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 37px 25px;
+        box-shadow: 7px 7px 0 var(--ink);
+      }
+
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-actions {
+        min-width: 0;
+      }
+
+      .footer-wrap {
+        flex-direction: column;
+      }
+    }
+
+    /* =========================================================
+       13. 인쇄 / PDF 저장
+    ========================================================== */
+    @media print {
+      body {
+        background: white;
+      }
+
+      body::before,
+      .site-header,
+      .hero::before,
+      .hero::after,
+      .floating-note,
+      .floating-star,
+      .hero-actions,
+      .contact-actions,
+      footer {
+        display: none !important;
+      }
+
+      .section,
+      .hero {
+        min-height: auto;
+        padding: 28px 0;
+      }
+
+      .card,
+      .profile-frame,
+      .contact-box {
+        break-inside: avoid;
+        box-shadow: none !important;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .project {
+        grid-template-columns: 0.35fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =======================================================
+       상단 메뉴
+  ======================================================== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top">
+        <span class="brand-mark">AX</span>
+        <span>ART.DATA.PORTFOLIO</span>
+      </a>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="모바일 메뉴 열기"
+        aria-expanded="false"
+      >
+        <span></span>
+      </button>
+
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#direction">소개</a>
+        <a href="#strengths">역량</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#learning">AI/AX 교육</a>
+        <a href="#experience">경험</a>
+        <a class="nav-contact" href="#contact">연락하기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy-area reveal">
+          <p class="hero-kicker">
+            <span class="live-dot"></span>
+            AI/AX 엔지니어 양성과정 수강 중 · 2026.07—12
+          </p>
+
+          <h1>
+            감각을 <span class="line-art">구조로,</span><br />
+            데이터를 경험으로.
+          </h1>
+
+          <p class="hero-copy">
+            예술·콘텐츠 기획 경험과 산업경영공학의 분석 역량을 바탕으로,
+            사용자와 업무의 맥락을 구조화하고 데이터와 AI를 활용해
+            개선안을 설계하는 주니어 기획자를 목표로 합니다.
+          </p>
+
+          <div class="role-row" aria-label="관심 지원 직무">
+            <span class="role-chip primary">1순위 · AI·데이터 기반 서비스 기획/운영</span>
+            <span class="role-chip">2순위 · 디지털 교육·콘텐츠 기획</span>
+            <span class="role-chip">프로덕트 운영</span>
+            <span class="role-chip">AX 업무개선</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button button-dark" href="#projects">대표 프로젝트 보기 →</a>
+            <button class="button button-light" id="printButton" type="button">
+              PDF로 저장
+            </button>
+          </div>
+        </div>
+
+        <div class="profile-zone reveal">
+          <span class="floating-star" aria-hidden="true">✦</span>
+          <span class="floating-note note-art">ART · STORY</span>
+          <span class="floating-note note-data">DATA · SYSTEM</span>
+
+          <article class="profile-frame">
+            <div class="photo-wrap">
+              <!--
+                현재 폴더 구조
+                aboutme.html
+                images/photo02.jpeg
+              -->
+              <img
+                class="profile-photo"
+                src="./images/photo02.jpeg"
+                alt="포트폴리오 프로필 이미지"
+              />
+            </div>
+
+            <div class="profile-caption">
+              <div>
+                <strong>AI·DATA PLANNER</strong>
+                <span>ART × ENGINEERING</span>
+              </div>
+            
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         DIRECTION
+    ====================================================== -->
+    <section class="section section-white" id="direction">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">01 · Direction</p>
+            <h2 class="section-title">서로 다른 전공을<br />하나의 문제해결 방식으로</h2>
+          </div>
+
+          <p class="section-desc">
+            가장 즉시 활용하기 좋은 강점은 콘텐츠를 이해하기 쉽게 구조화하는
+            능력입니다. 여기에 데이터 분석과 AI/AX 기술을 더해 서비스 기획과
+            운영 개선 영역으로 확장하고 있습니다.
+          </p>
+        </div>
+
+        <div class="direction-grid">
+          <article class="direction-main card reveal">
+            <p class="eyebrow mini-label">ART × ENGINEERING</p>
+
+            <h3>
+              사람의 맥락을 읽고,<br />
+              정보와 과정을 설계합니다.
+            </h3>
+
+            <p>
+              전시·교육·영상 콘텐츠를 기획하며 정보를 전달하는 흐름을 설계했습니다.
+              산업경영공학을 복수전공하며 통계, 데이터마이닝, 데이터베이스,
+              경제성 분석을 공부했고, 현재는 생성형 AI·웹·클라우드·AI 에이전트로
+              학습 범위를 넓히고 있습니다.
+            </p>
+
+            <div class="degree-row">
+              <span class="degree-pill">예술경영학과</span>
+              <span class="degree-pill">산업경영공학과 복수전공</span>
+            </div>
+          </article>
+
+          <div class="job-stack">
+            <article class="job-card primary-job card reveal">
+              <span class="job-rank">RECOMMEND 01</span>
+              <h3>AI·데이터 기반<br />서비스 기획·운영</h3>
+              <p>
+                사용자 요구 정리, 서비스 흐름 설계, 데이터 기반 개선,
+                생성형 AI 활용 업무를 함께 다루는 주니어 직무와 가장 잘 맞습니다.
+              </p>
+            </article>
+
+            <article class="job-card secondary-job card reveal">
+              <span class="job-rank">RECOMMEND 02</span>
+              <h3>디지털 교육·콘텐츠<br />기획·운영</h3>
+              <p>
+                교육 영상 총괄 PD와 전시·SNS 콘텐츠 제작 경험을 바로 활용하면서,
+                AI를 접목한 에듀테크·교육 운영으로 확장하기 좋습니다.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         STRENGTHS
+    ====================================================== -->
+    <section class="section" id="strengths">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">02 · Core Competencies</p>
+            <h2 class="section-title">기획에서 분석,<br />결과물까지 연결합니다</h2>
+          </div>
+
+          <p class="section-desc">
+            성격을 추상적으로 설명하기보다 실제 프로젝트에서 반복적으로
+            수행한 행동을 네 가지 역량으로 정리했습니다.
+          </p>
+        </div>
+
+        <div class="strength-grid">
+          <article class="strength-card card reveal">
+            <span class="strength-no">01</span>
+            <h3>정보 구조화</h3>
+            <p>
+              자료에서 핵심 메시지를 선별하고, 스토리보드·발표자료·교육 콘텐츠처럼
+              이해하기 쉬운 흐름으로 구조화합니다.
+            </p>
+            <span class="strength-keyword">PLAN</span>
+          </article>
+
+          <article class="strength-card card reveal">
+            <span class="strength-no">02</span>
+            <h3>콘텐츠 구현</h3>
+            <p>
+              카드뉴스, 온라인 전시, 영상, 포스터 등 목적과 채널에 맞는
+              콘텐츠를 기획하고 제작합니다.
+            </p>
+            <span class="strength-keyword">MAKE</span>
+          </article>
+
+          <article class="strength-card card reveal">
+            <span class="strength-no">03</span>
+            <h3>데이터 분석</h3>
+            <p>
+              통계·데이터마이닝·SQL 학습을 바탕으로 데이터를 정리하고,
+              변수 간 관계와 문제의 원인을 분석합니다.
+            </p>
+            <span class="strength-keyword">DATA</span>
+          </article>
+
+          <article class="strength-card card reveal">
+            <span class="strength-no">04</span>
+            <h3>기술 확장</h3>
+            <p>
+              GitHub, 터미널, 프롬프트 엔지니어링부터 웹·Python·AI 에이전트까지
+              새로운 도구를 과제와 프로젝트에 연결해 학습합니다.
+            </p>
+            <span class="strength-keyword">BUILD</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PROJECTS
+    ====================================================== -->
+    <section class="section section-white" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">03 · Selected Projects</p>
+            <h2 class="section-title">지원 직무와 연결되는<br />대표 프로젝트 4개</h2>
+          </div>
+
+          <p class="section-desc">
+            데이터 분석, 서비스 흐름 설계, 교육 콘텐츠 총괄, 전시 기획까지
+            예술과 공학의 두 축이 모두 드러나는 경험을 선별했습니다.
+          </p>
+        </div>
+
+        <div class="project-list">
+          <!-- 프로젝트 1 -->
+          <article class="project card reveal">
+            <div class="project-visual">
+              <span class="project-index">PROJECT 01</span>
+              <span class="project-symbol" aria-hidden="true">📊</span>
+              <span class="project-category">DATA ANALYSIS</span>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta">
+                <span>2024</span>
+                <span>팀 프로젝트</span>
+                <span>Python · 데이터마이닝</span>
+              </div>
+
+              <h3>주조 공정 불량품 요인 분석</h3>
+
+              <p class="project-summary">
+                주조 공정 데이터를 정리·비교해 정상과 불량의 차이와
+                주요 불량 요인을 탐색한 팀 프로젝트입니다.
+              </p>
+
+              <div class="case-grid">
+                <div class="case-box">
+                  <strong>PROBLEM</strong>
+                  <p>공정 데이터에서 불량과 관련된 주요 변수를 파악했습니다.</p>
+                </div>
+
+                <div class="case-box">
+                  <strong>ACTION</strong>
+                  <p>데이터를 전처리하고 변수별 분포와 관계를 비교·분석했습니다.</p>
+                </div>
+
+                <div class="case-box">
+                  <strong>OUTPUT</strong>
+                  <p>분석 과정과 시사점을 보고서와 발표자료로 정리했습니다.</p>
+                </div>
+              </div>
+
+              <div class="tag-list">
+                <span class="tag">Python</span>
+                <span class="tag">Google Colab</span>
+                <span class="tag">Data Mining</span>
+                <span class="tag">EDA</span>
+                <span class="tag">Team Project</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 프로젝트 2 -->
+          <article class="project card reveal">
+            <div class="project-visual">
+              <span class="project-index">PROJECT 02</span>
+              <span class="project-symbol" aria-hidden="true">🖥️</span>
+              <span class="project-category">SERVICE PLANNING</span>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta">
+                <span>2023</span>
+                <span>팀 프로젝트</span>
+                <span>Python · Figma</span>
+              </div>
+
+              <h3>비대면 중고거래 키오스크 제작</h3>
+
+              <p class="project-summary">
+                비대면 중고거래 과정을 단계별로 정의하고,
+                Python과 Figma로 기능과 화면 흐름을 설계한 팀 프로젝트입니다.
+              </p>
+
+              <div class="case-grid">
+                <div class="case-box">
+                  <strong>PROBLEM</strong>
+                  <p>대면 거래의 시간·장소 제약과 이용 과정의 불편을 정의했습니다.</p>
+                </div>
+
+                <div class="case-box">
+                  <strong>ACTION</strong>
+                  <p>사용자 흐름과 핵심 기능을 정리하고 Figma로 화면을 설계했습니다.</p>
+                </div>
+
+                <div class="case-box">
+                  <strong>OUTPUT</strong>
+                  <p>기획서, 사용자 흐름, 프로토타입과 Python 결과물을 제작했습니다.</p>
+                </div>
+              </div>
+
+              <div class="tag-list">
+                <span class="tag">Service Flow</span>
+                <span class="tag">UX/UI</span>
+                <span class="tag">Figma</span>
+                <span class="tag">Python</span>
+                <span class="tag">Planning</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 프로젝트 3 -->
+          <article class="project card reveal">
+            <div class="project-visual">
+              <span class="project-index">PROJECT 03</span>
+              <span class="project-symbol" aria-hidden="true">🎬</span>
+              <span class="project-category">EDUCATION CONTENT</span>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta">
+                <span>2021—2022</span>
+                <span>영상 콘텐츠 총괄 PD</span>
+                <span>기획 · 촬영 · 편집</span>
+              </div>
+
+              <h3>역사·문화 교육 영상 기획·제작</h3>
+
+              <p class="project-summary">
+                역사·문화 정보를 중학생 눈높이에 맞는 교육 영상으로 재구성하고,
+                자료 조사부터 스토리보드, 촬영, 편집, 활동 자료 제작까지 수행했습니다.
+              </p>
+
+              <div class="case-grid">
+                <div class="case-box">
+                  <strong>PROBLEM</strong>
+                  <p>전문적인 역사·문화 정보를 학생 눈높이로 전달해야 했습니다.</p>
+                </div>
+
+                <div class="case-box">
+                  <strong>ACTION</strong>
+                  <p>자료 조사, 대본·스토리보드, 촬영과 편집 과정을 총괄했습니다.</p>
+                </div>
+
+                <div class="case-box">
+                  <strong>OUTPUT</strong>
+                  <p>교육 영상과 활동지, 프로젝트 포트폴리오를 제작했습니다.</p>
+                </div>
+              </div>
+
+              <div class="tag-list">
+                <span class="tag">Content Planning</span>
+                <span class="tag">Storyboarding</span>
+                <span class="tag">Premiere Pro</span>
+                <span class="tag">Education</span>
+                <span class="tag">Project Lead</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 프로젝트 4 -->
+          <article class="project card reveal">
+            <div class="project-visual">
+              <span class="project-index">PROJECT 04</span>
+              <span class="project-symbol" aria-hidden="true">🏛️</span>
+              <span class="project-category">ART & BRANDING</span>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta">
+                <span>2023 · 2024</span>
+                <span>온라인 전시</span>
+                <span>2년 연속 우수 전시</span>
+              </div>
+
+              <h3>역사문화 공간 온라인 전시 기획</h3>
+
+              <p class="project-summary">
+                역사문화 공간의 정보와 현장 이미지를 온라인 전시로 구성하고,
+                영상·포스터·SNS 콘텐츠를 제작한 프로젝트입니다.
+              </p>
+
+              <div class="case-grid">
+                <div class="case-box">
+                  <strong>PROBLEM</strong>
+                  <p>공간의 역사성과 시각적 특징을 온라인에서 전달해야 했습니다.</p>
+                </div>
+
+                <div class="case-box">
+                  <strong>ACTION</strong>
+                  <p>콘셉트 기획부터 촬영, 영상 편집, 포스터와 SNS 홍보를 연결했습니다.</p>
+                </div>
+
+                <div class="case-box">
+                  <strong>RESULT</strong>
+                  <p>두 차례의 온라인 전시가 모두 우수 전시로 선정되었습니다.</p>
+                </div>
+              </div>
+
+              <div class="tag-list">
+                <span class="tag">Exhibition Planning</span>
+                <span class="tag">Visual Storytelling</span>
+                <span class="tag">Video</span>
+                <span class="tag">SNS</span>
+                <span class="tag">Award</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         AI/AX EDUCATION
+    ====================================================== -->
+    <section class="section" id="learning">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">04 · AI/AX Engineering</p>
+            <h2 class="section-title">현재의 학습과<br />앞으로의 성장 로드맵</h2>
+          </div>
+
+          <p class="section-desc">
+            공개 페이지에는 교육기관명과 세부 일정을 표시하지 않고,
+            제공한 교육 일정표에 적힌 학습 내용만 단계별로 정리했습니다.
+            아직 배우지 않은 기술은 보유 역량으로 표현하지 않았습니다.
+          </p>
+        </div>
+
+        <div class="learning-dashboard">
+          <aside class="status-card card reveal">
+            <p class="status-label">CURRENT LEARNING</p>
+            <h3>AI/AX 엔지니어 양성과정</h3>
+            <p>
+              IT 기초와 생성형 AI 활용부터 웹, Python, 데이터베이스,
+              클라우드, AI 모델링, AI 에이전트와 프로젝트까지 학습하는 과정입니다.
+            </p>
+
+            <dl class="course-info">
+              <div>
+                <dt>FIELD</dt>
+                <dd>AI · 데이터 분석 · 웹 서비스</dd>
+              </div>
+
+              <div>
+                <dt>PERIOD</dt>
+                <dd>2026년 하반기</dd>
+              </div>
+
+              <div>
+                <dt>FORMAT</dt>
+                <dd>이론·실습 3개월 + 프로젝트 2개월</dd>
+              </div>
+
+              <div>
+                <dt>STATUS</dt>
+                <dd>수강 중</dd>
+              </div>
+            </dl>
+          </aside>
+
+          <div class="roadmap">
+            <article class="roadmap-item card reveal is-now">
+              <p class="roadmap-date">PHASE 01</p>
+              <div>
+                <h3>IT 기초 · 생성형 AI 리터러시</h3>
+                <p>
+                  협업 도구, GitHub·터미널·개발 환경, 생성형 AI 메커니즘,
+                  프롬프트 엔지니어링과 AI 업무 자동화를 학습합니다.
+                </p>
+              </div>
+              <span class="roadmap-state">기초</span>
+            </article>
+
+            <article class="roadmap-item card reveal is-next">
+              <p class="roadmap-date">PHASE 02</p>
+              <div>
+                <h3>웹 · Python · 데이터베이스</h3>
+                <p>
+                  HTML·CSS·JavaScript·React, Python 기초와 데이터 처리,
+                  관계형 DB·NoSQL·벡터 DB, Django·FastAPI를 학습합니다.
+                </p>
+              </div>
+              <span class="roadmap-state">개발</span>
+            </article>
+
+            <article class="roadmap-item card reveal is-next">
+              <p class="roadmap-date">PHASE 03</p>
+              <div>
+                <h3>클라우드 · AI 모델링 · AI 에이전트</h3>
+                <p>
+                  Docker·AWS, 분류·회귀·텍스트 분석과 신경망 모델,
+                  LLM API·RAG·LangChain 기반 애플리케이션을 학습합니다.
+                </p>
+              </div>
+              <span class="roadmap-state">AI</span>
+            </article>
+
+            <article class="roadmap-item card reveal is-next">
+              <p class="roadmap-date">PHASE 04</p>
+              <div>
+                <h3>미니 프로젝트 · 최종 프로젝트</h3>
+                <p>
+                  프로젝트 기획과 설계, 서비스 개발, 발표와 문서화 과정을 수행합니다.
+                </p>
+              </div>
+              <span class="roadmap-state">실전</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         EXPERIENCE
+    ====================================================== -->
+    <section class="section section-white" id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">05 · Experience</p>
+            <h2 class="section-title">콘텐츠를 만들고,<br />현장을 운영한 경험</h2>
+          </div>
+
+          <p class="section-desc">
+            지원 방향과 연결되는 기획·콘텐츠·전시·교육 경험을 중심으로
+            구성했으며, 공개 페이지에서는 기관과 프로그램의 고유명칭을 줄였습니다.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <aside class="profile-summary card reveal">
+            <h3>Profile Summary</h3>
+
+            <dl class="profile-dl">
+              <div>
+                <dt>EDUCATION</dt>
+                <dd>예술경영학과<br />산업경영공학과 복수전공</dd>
+              </div>
+
+              <div>
+                <dt>FOCUS</dt>
+                <dd>AI 서비스 기획 · 데이터 기반 운영 · 디지털 콘텐츠</dd>
+              </div>
+
+              <div>
+                <dt>CERTIFICATION</dt>
+                <dd>정보처리기사 · SQLD · ADsP · 6시그마 GB</dd>
+              </div>
+
+              <div>
+                <dt>LANGUAGE</dt>
+                <dd>OPIc IH</dd>
+              </div>
+
+              <div>
+                <dt>TOOLS</dt>
+                <dd>Premiere Pro · PowerPoint · Excel · Python · SQL · Figma</dd>
+              </div>
+            </dl>
+          </aside>
+
+          <div class="timeline">
+            <article class="timeline-item reveal">
+              <span class="timeline-dot"></span>
+              <p class="timeline-date">2023—2024</p>
+              <div class="timeline-content">
+                <h3>온라인 전시 기획 및 제작</h3>
+                <strong>기획 · 현장 촬영 · 영상 · 포스터 · SNS 홍보</strong>
+                <p>
+                  역사문화 공간을 주제로 온라인 전시를 기획·제작해
+                  2년 연속 우수 전시로 선정되었습니다.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <span class="timeline-dot"></span>
+              <p class="timeline-date">2022</p>
+              <div class="timeline-content">
+                <h3>전시산업 현장·홍보 활동</h3>
+                <strong>현장 탐방 · 카드뉴스 · 숏폼 · 블로그</strong>
+                <p>
+                  전시 개최 과정을 현장에서 학습하고, 내용을 온라인 홍보
+                  콘텐츠로 재구성했습니다.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <span class="timeline-dot"></span>
+              <p class="timeline-date">2021—2022</p>
+              <div class="timeline-content">
+                <h3>역사·문화 교육 영상 기획·제작</h3>
+                <strong>영상 콘텐츠 총괄 PD · 교육 콘텐츠 기획</strong>
+                <p>
+                  역사·문화·예술 교육 영상의 자료 조사, 대본, 촬영, 편집과
+                  활동 자료 제작을 수행했습니다.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <span class="timeline-dot"></span>
+              <p class="timeline-date">2021</p>
+              <div class="timeline-content">
+                <h3>전시 홍보 콘텐츠 제작</h3>
+                <strong>SNS 콘텐츠 · 전시 모니터링</strong>
+                <p>
+                  주 1회 인스타그램 카드뉴스를 기획·제작하고 전시와 행사
+                  모니터링 내용을 콘텐츠에 반영했습니다.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item reveal">
+              <span class="timeline-dot"></span>
+              <p class="timeline-date">2020—2022</p>
+              <div class="timeline-content">
+                <h3>박물관 전시·교육 운영 활동</h3>
+                <strong>박물관 SNS · 전시 준비 · 교육 프로그램</strong>
+                <p>
+                  박물관 SNS 운영, 전시 굿즈 시안 제작, 문화행사와
+                  교육 프로그램 지원 등 전시 운영 전반을 경험했습니다.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CERTIFICATIONS & TOOLS
+    ====================================================== -->
+    <section class="section" id="credentials">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">06 · Credentials</p>
+            <h2 class="section-title">기초를 증명하고,<br />실무 역량을 확장합니다</h2>
+          </div>
+
+          <p class="section-desc">
+            자격증은 역량의 전부가 아니라 기본기를 확인하는 근거로,
+            도구는 실제 프로젝트를 만드는 수단으로 활용합니다.
+          </p>
+        </div>
+
+        <div class="credential-grid">
+          <article class="credential-card card reveal">
+            <h3>Certifications</h3>
+
+            <div class="cert-list">
+              <div class="cert">
+                <strong>정보처리기사</strong>
+                <span>보유</span>
+              </div>
+
+              <div class="cert">
+                <strong>SQLD</strong>
+                <span>보유</span>
+              </div>
+
+              <div class="cert">
+                <strong>ADsP</strong>
+                <span>보유</span>
+              </div>
+
+              <div class="cert">
+                <strong>6시그마 Green Belt</strong>
+                <span>보유</span>
+              </div>
+
+              <div class="cert">
+                <strong>PCCE Lv.1</strong>
+                <span>보유</span>
+              </div>
+
+              <div class="cert">
+                <strong>OPIc IH</strong>
+                <span>보유</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="credential-card card reveal">
+            <h3>Tools & Knowledge</h3>
+
+            <div class="tool-groups">
+              <div class="tool-group">
+                <h4>PLANNING & CONTENT</h4>
+                <div class="tag-list">
+                  <span class="tag">PowerPoint</span>
+                  <span class="tag">Figma</span>
+                  <span class="tag">Premiere Pro</span>
+                  <span class="tag">Photoshop</span>
+                  <span class="tag">Storyboarding</span>
+                </div>
+              </div>
+
+              <div class="tool-group">
+                <h4>DATA & DEVELOPMENT</h4>
+                <div class="tag-list">
+                  <span class="tag">Python</span>
+                  <span class="tag">SQL</span>
+                  <span class="tag">Excel</span>
+                  <span class="tag">HTML/CSS</span>
+                  <span class="tag">Git/GitHub</span>
+                </div>
+              </div>
+
+              <div class="tool-group">
+                <h4>LEARNING NOW / UPCOMING</h4>
+                <div class="tag-list">
+                  <span class="tag">Prompt Engineering</span>
+                  <span class="tag">React</span>
+                  <span class="tag">Django</span>
+                  <span class="tag">FastAPI</span>
+                  <span class="tag">Docker/AWS</span>
+                  <span class="tag">RAG/LangChain</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <div class="contact-content">
+            <div>
+              <p class="eyebrow">Portfolio Note</p>
+              <h2>기획과 기술 사이를<br />연결하겠습니다.</h2>
+              <p>
+                예술·콘텐츠 기획 경험과 데이터 분석 역량을 바탕으로,
+                복잡한 정보를 사용자가 이해하기 쉬운 서비스 흐름으로 바꾸겠습니다.
+              </p>
+              <p class="portfolio-goal">
+                문제를 정확히 정의하고 AI와 데이터를 적절히 연결해,
+                실행 가능한 결과를 만드는 기획자로 성장하겠습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Portfolio. All rights reserved.</p>
+      <p>Designed with Art × Engineering</p>
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================
+       1. 푸터 연도
+    ========================================================== */
+    document.querySelector("#year").textContent = new Date().getFullYear();
+
+    /* =========================================================
+       2. PDF 저장
+       - 버튼을 누르면 브라우저 인쇄 창이 열립니다.
+       - 대상에서 'PDF로 저장'을 선택하면 됩니다.
+    ========================================================== */
+    document.querySelector("#printButton").addEventListener("click", function () {
+      window.print();
+    });
+
+    /* =========================================================
+       3. 모바일 메뉴
+    ========================================================== */
+    const menuButton = document.querySelector(".menu-button");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuButton.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    /* =========================================================
+       4. 스크롤 등장 애니메이션
+    ========================================================== */
+    const revealItems = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    revealItems.forEach(function (item) {
+      revealObserver.observe(item);
+    });
+
+    /* =========================================================
+       5. 현재 보고 있는 메뉴 표시
+    ========================================================== */
+    const sections = document.querySelectorAll("main section[id]");
+    const menuLinks = document.querySelectorAll(".nav-links a[href^='#']");
+
+    const sectionObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+
+          menuLinks.forEach(function (link) {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + entry.target.id
+            );
+          });
+        });
+      },
+      {
+        rootMargin: "-35% 0px -55% 0px",
+        threshold: 0
+      }
+    );
+
+    sections.forEach(function (section) {
+      sectionObserver.observe(section);
+    });
+
+  </script>
+</body>
+</html>
