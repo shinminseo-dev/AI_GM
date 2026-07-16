@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/AI_GM/RSPgame/static/css/main.d9941b21.css",
+    "main.js": "/AI_GM/RSPgame/static/js/main.b2d2ed47.js",
+    "static/js/793.0748e942.chunk.js": "/AI_GM/RSPgame/static/js/793.0748e942.chunk.js",
+    "static/js/362.e8f12a46.chunk.js": "/AI_GM/RSPgame/static/js/362.e8f12a46.chunk.js",
+    "static/js/453.ed67ad9b.chunk.js": "/AI_GM/RSPgame/static/js/453.ed67ad9b.chunk.js",
+    "static/js/671.3b6ecd90.chunk.js": "/AI_GM/RSPgame/static/js/671.3b6ecd90.chunk.js",
+    "static/js/785.49a89f9d.chunk.js": "/AI_GM/RSPgame/static/js/785.49a89f9d.chunk.js",
+    "index.html": "/AI_GM/RSPgame/index.html",
+    "main.d9941b21.css.map": "/AI_GM/RSPgame/static/css/main.d9941b21.css.map",
+    "main.b2d2ed47.js.map": "/AI_GM/RSPgame/static/js/main.b2d2ed47.js.map",
+    "453.ed67ad9b.chunk.js.map": "/AI_GM/RSPgame/static/js/453.ed67ad9b.chunk.js.map",
+    "671.3b6ecd90.chunk.js.map": "/AI_GM/RSPgame/static/js/671.3b6ecd90.chunk.js.map",
+    "785.49a89f9d.chunk.js.map": "/AI_GM/RSPgame/static/js/785.49a89f9d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d9941b21.css",
+    "static/js/main.b2d2ed47.js"
+  ]
+}
